@@ -1,0 +1,26 @@
+# ClusterRole manifest (e.g., argocd-cluster-role.yaml)
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: argocd-role
+rules:
+  - apiGroups: [""]
+    resources: ["pods", "services", "deployments", "configmaps", "secrets"]  # Add any other resources Argo CD needs access to
+    verbs: ["get", "list", "watch", "create", "update", "sync", "override", "delete"]  # Adjust permissions as needed
+  # Add more rules as necessary
+
+---
+
+# ClusterRoleBinding manifest (e.g., argocd-cluster-role-binding.yaml)
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: argocd-role-binding
+subjects:
+  - kind: ServiceAccount
+    name: argocd-service-account  # Name of the Argo CD service account
+    namespace: argocd  # Namespace of the Argo CD service account
+roleRef:
+  kind: ClusterRole
+  name: argocd-role  # Name of the ClusterRole
+  apiGroup: rbac.authorization.k8s.io
