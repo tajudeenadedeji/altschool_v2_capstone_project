@@ -8,7 +8,7 @@ spec:
     server: 'https://kubernetes.default.svc'
     namespace: sock-shop
   source:
-    repoURL: 'https://github.com/tajudeenadedeji/altschool_capstone_project.git'
+    repoURL: 'https://github.com/tajudeenadedeji/altschool__v2_capstone_project.git'
     path: ./apps/sock-shop
     targetRevision: HEAD
   project: default
