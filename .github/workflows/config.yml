@@ -33,11 +33,7 @@ jobs:
       - name: Install kubectl
         run: |
           sudo curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
-          sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
-
-      # # Install Argo CD CRDs
-      # - name: Install Argo CD CRDs
-      #   run: kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml    
+          sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl    
       
       - name: Install ArgoCD CLI
         run: |
